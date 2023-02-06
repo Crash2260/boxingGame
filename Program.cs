@@ -5,9 +5,24 @@
 
     public void actionDecider()
     {
+        int spicyOrStale = rando.Next(0, 100);
+
+        //If health is above 25%, more even block/attack ratio
         if (health > 25)
         {
-            if (rando.Next(0, 100) >= 50)
+            if (spicyOrStale >= 50)
+            {
+                boxer.attack();
+            }
+            else
+            {
+                boxer.block();
+            }
+        }
+        //If low health, get more aggressive
+        else
+        {
+            if (spicyOrStale >= 30)
             {
                 boxer.attack();
             }
@@ -20,7 +35,9 @@
 
     public void attack()
     {
+        //Roll Random number, 40/40/20 chance for left/right/uppercut
         int magicNumber = rando.Next(0, 100);
+
         if (magicNumber < 40)
         {
             boxer.rightHook();
@@ -37,7 +54,9 @@
 
     public void block()
     {
+        //Roll random number to determine block time
         int randoRoll = rando.Next(0, 100);
+        
         if (randoRoll < 35)
         {
             //Hold block for 2 seconds
