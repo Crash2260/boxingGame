@@ -37,7 +37,7 @@
 
     public void block()
     {
-        int randoRoll = rando.Next(0, 100)
+        int randoRoll = rando.Next(0, 100);
         if (randoRoll < 35)
         {
             //Hold block for 2 seconds
